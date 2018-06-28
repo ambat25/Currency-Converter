@@ -4,9 +4,9 @@ self.addEventListener('install', event => {
     caches.open(cacheName)
       .then(cache => {
         return cache.addAll([
-          'Currency-Converter/index.html',
-          'Currency-Converter/assets/css/main.css',
-          'Currency-Converter/assets/js/app.js'
+          '/Currency-Converter/index.html',
+          '/Currency-Converter/assets/css/main.css',
+          '/Currency-Converter/assets/js/app.js'
         ])
           .then(() => self.skipWaiting());
       })
