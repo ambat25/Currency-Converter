@@ -1,12 +1,12 @@
-let cacheName = 'cur-conv-v1';
+let cacheName = 'cur-conv-v2';
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName)
       .then(cache => {
         return cache.addAll([
-          '/index.html',
-          '/assets/css/main.css',
-          '/assets/js/app.js'
+          'Currency-Converter/index.html',
+          'Currency-Converter/assets/css/main.css',
+          'Currency-Converter/assets/js/app.js'
         ])
           .then(() => self.skipWaiting());
       })
