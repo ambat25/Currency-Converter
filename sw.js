@@ -4,9 +4,9 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
       caches.open(staticCacheName).then((cache) => {
         return cache.addAll([
-            '/Currency-Converter/index.html',
-          '/Currency-Converter/assets/js/app.js',
-          '/Currency-Converter/assets/css/main.css',
+            'Currency-Converter/index.html',
+          'Currency-Converter/assets/js/app.js',
+          'Currency-Converter/assets/css/main.css',
         ]);
       })
     );
