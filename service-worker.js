@@ -1,4 +1,4 @@
-let cacheName = 'cur-conv-v2';
+let cacheName = 'cur-conv-v3';
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName)
