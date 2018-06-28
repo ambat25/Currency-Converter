@@ -5,9 +5,27 @@
 .demo-card-wide.mdl-card {
   margin-left: auto;
   margin-right: auto;
-  width: 512px;
+  width: 80%;
+  max-width: 512px;
   border: 3px solid #785547;
 }
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
+}
+.currency-inputs-wrapper{
+  padding: 20px;
+}
+.currency-inputs-wrapper>div{
+  width: 50% !important;
+  padding: 10px;
+  margin: 0px;
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.centered{
+  text-align: center;
+}
+#convertion-title{
+  font-size: 5vw;
 }

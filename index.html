@@ -24,34 +24,31 @@
                 <div class="page-content">
                     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title">
-                            <h6 class="mdl-card__title-text">{{from_name}}
+                            <h6 class="mdl-card__title-text centered" id="convertion-title" v-if='from_name || to_name'>{{from_name}}
                                 <i class="material-icons">repeat</i> {{to_name}}</h6>
                         </div>
-                        <div class="mdl-card__supporting-text mdl-grid">
-
-                            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
+                        <div class="currency-inputs-wrapper">
+                            <div class="mdl-textfield mdl-js-textfield ">
                                 <input class="mdl-textfield__input" @keyup='fromChange' type="text" v-model='from_val' pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
                                 <span class="mdl-textfield__error">Input is not a number!</span>
                             </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                                 <select class="mdl-textfield__input" id="from_currencies_select" v-model='from_id' @change='fromSelectChange'>
                                     <option v-for='currency in currencies' :value="currency.id">{{currency.currencyName}}</option>
                                 </select>
                             </div>
-
-                            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
+                            <div class="mdl-textfield mdl-js-textfield ">
                                 <input class="mdl-textfield__input" @keyup='toChange' type="text" v-model='to_val' pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
                                 <span class="mdl-textfield__error">Input is not a number!</span>
                             </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
                                 <select class="mdl-textfield__input" v-model='to_id' selected='selected' @change='toSelectChange'>
                                     <option v-for='currency in currencies' :value="currency.id">{{currency.currencyName}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <br>
-                            {{error_message}}
+                            <br> {{error_message}}
                             <br>
                         </div>
                     </div>
@@ -59,38 +56,18 @@
             </main>
         </div>
     </div>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="assets/js/app.js"></script>
     <script src="assets/js/idb.js"></script>
+    <script src="assets/js/app.js"></script>
     <script>
         // window.onload = (e) => {
-            
-            const myDb = idb.open('currency-converter', 1, upgradeDB => {
-                let currenciesStore = upgradeDB.createObjectStore('currencies');
-                let convertionRateStore = upgradeDB.createObjectStore('convertion-rate');
 
-            })
-            // const idbKeyval = {
-            //     set(key, val) {
-            //         return myDb.then(db => {
-            //             const tx = db.transaction('currencies', 'readwrite');
-            //             tx.objectStore('currencies').put(val, key);
-            //             return tx.complete;
-            //         });
-            //     }
-            // }
-            // fetch('https://free.currencyconverterapi.com/api/v5/currencies')
-            //     .then((res) => res.json())
-            //     .then(data => {
-                    
-            //     })
-            // function myFunction(val) {
-            //     var x = document.getElementById("from_currencies_select");
-            //     var option = document.createElement("option");
-            //     option.text = val;
-            //     x.add(option);
-            // }
+        const myDb = idb.open('currency-converter', 1, upgradeDB => {
+            let currenciesStore = upgradeDB.createObjectStore('currencies');
+            let convertionRateStore = upgradeDB.createObjectStore('convertion-rate');
+
+        })
     </script>
     <script>
         if ('serviceWorker' in navigator) {
