@@ -26,6 +26,10 @@
 .centered{
   text-align: center;
 }
+.centered-div{
+  margin-left: auto;
+  margin-right: auto;
+}
 #convertion-title{
-  font-size: 5vw;
+  font-size: 1em;
 }
